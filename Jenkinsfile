@@ -1,17 +1,18 @@
-pipeline {
+pipeline{
     agent any
-    stages {
-        stage ('Build image docker') {
-            steps {
-                sh 'docker build -t app-java .'
-               
-             }
+    stages{
+        stage('run job1'){
+         steps{
+            build job: 'build'
          }
-         stage('Run container'){
-            steps{
-                sh 'docker run --restart unless-stopped -dti -p 8080:8080 --name app-java app-java'
+    }
+    stage('Run job2'){
+       steps{
+                build job: 'deploy'
+                
             }
-        }
-    } 
-
+       }    
+    }
+    
 }
+    
