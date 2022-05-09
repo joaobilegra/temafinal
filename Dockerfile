@@ -3,7 +3,7 @@ FROM ubuntu:latest
 
 RUN apt-get update \
     && apt install openjdk-11-jdk -y
-
+RUN apt-get -y curl
 WORKDIR /app
 COPY . .
 WORKDIR /app/app/aggregation-service/
