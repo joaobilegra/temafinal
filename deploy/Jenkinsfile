@@ -9,10 +9,10 @@ pipeline {
          }
          stage('test'){
             steps{
-                sh 'docker exec -it app-java curl -X PUT "localhost:8080/employees/" -H 'Content-Type: application/json' -d' { "name": "jack", "age": 39, "cpf": "1234567" }'
+                sh 'docker exec  app-java curl -X PUT "localhost:8080/employees/" -H 'Content-Type: application/json' -d' { "name": "jack", "age": 39, "cpf": "1234567" }'
             }
      
-        }
+       }
  
-    }
+   }
 }
