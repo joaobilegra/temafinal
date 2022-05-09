@@ -1,7 +1,7 @@
 pipeline{
     agent any
     stages{
-        stage('Remove image'){
+        stage('Remove container'){
          steps{
             
              sh 'docker rm app-java --force'
