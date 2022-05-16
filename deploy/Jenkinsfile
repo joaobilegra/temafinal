@@ -9,7 +9,7 @@ pipeline {
          }
         stage ('test') {
             steps {
-                sh 'nc -z -v localhost 8080'
+                sh 'docker port app-java'
 
              }
          }
