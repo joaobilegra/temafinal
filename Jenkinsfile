@@ -1,18 +1,14 @@
-pipeline{
+pipeline {
     agent any
-    stages{
-        stage('run job1'){
-         steps{
-            build job: 'build'
-          }
+    stages {
+        stage ('Refresh instance ') {
+            steps {
+                sh 'aws autoscaling start-instance-refresh \
+                      --auto-scaling-group-name terraform-autoscaling   \
+                      --preferences '{"InstanceWarmup": 400, "MinHealthyPercentage": 50}'
+'
+
+             }
+         }
       }
-       stage('Run job2'){
-         steps{
-                build job: 'deploy'
-                
-            }
-        }    
-    }
-    
-}
-    
+  }
